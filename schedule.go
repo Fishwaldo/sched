@@ -200,7 +200,7 @@ func (s *Schedule) runJobInstance() {
 
 	// Logs and Metrics --------------------------------------
 	// -------------------------------------------------------
-	s.logger.Infow("Job Run Starting", "Instance", jobInstance.ID())
+	s.logger.Infow("Job Run Starting", "Instance", jobInstance.ID(), "State", jobInstance.State().String())
 	s.metrics.runs.Inc(1)
 	if s.activeJobs.len() > 1 {
 		s.metrics.overlappingCount.Inc(1)
